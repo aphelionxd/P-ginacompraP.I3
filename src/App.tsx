@@ -18,7 +18,7 @@ interface CarDetails {
 }
 
 const car: CarDetails = {
-  imageUrl: '../src/assets/carexemple.jpg', // URL da imagem do carro
+  imageUrl: '../public/img/car.jpg', // URL da imagem do carro
   brand: 'Marca Exemplo',
   model: 'Modelo Exemplo',
   price: 1000000,
