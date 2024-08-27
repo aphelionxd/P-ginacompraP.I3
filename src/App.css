@@ -7,9 +7,8 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px; /* Largura máxima para evitar expansão excessiva em telas grandes */
-  height: auto; /* Ajusta a altura conforme o conteúdo */
-  margin: 20px auto; /* Centraliza o contêiner na tela e adiciona margem */
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -24,14 +23,13 @@ body {
 }
 
 .car-image img {
-  width: 100%; /* Garante que a imagem preencha a largura do contêiner */
+  width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
 .car-details {
   margin-top: 20px;
-  flex-grow: 1; /* Permite que esta seção expanda para preencher o espaço restante */
 }
 
 h1 {
@@ -41,7 +39,7 @@ h1 {
 }
 
 h2 {
-  color: #FF0000; /* Cor vermelha para o preço */
+  color: #FF0000;
   font-size: 28px;
   margin: 10px 0;
 }
@@ -57,17 +55,28 @@ h2 {
   font-size: 20px;
 }
 
+.details-columns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.details-column {
+  flex: 1;
+  margin: 0 10px;
+}
+
 .details p {
   color: #333;
   line-height: 1.6;
-  margin: 5px 0; /* Ajusta a margem para evitar excesso de espaçamento */
+  margin: 5px 0;
 }
 
 .buttons {
   display: flex;
-  justify-content: center; /* Centraliza os botões horizontalmente */
+  justify-content: center;
   margin-top: 20px;
-  gap: 10px; /* Espaço entre os botões */
+  gap: 10px;
 }
 
 .buy-button,
@@ -83,7 +92,7 @@ h2 {
 }
 
 .buy-button {
-  background-color: #FF0000; /* Cor vermelha para o botão de compra */
+  background-color: #FF0000;
 }
 
 .buy-button:hover {
@@ -91,7 +100,7 @@ h2 {
 }
 
 .call-button {
-  background-color: #000000; /* Cor preta para o botão de telefone */
+  background-color: #000000;
   font-size: 20px;
 }
 
@@ -100,15 +109,14 @@ h2 {
 }
 
 .message-button {
-  background-color: #FF0000; /* Cor vermelha para o botão de mensagem */
-  color: #fff; /* Texto branco para o botão de mensagem */
+  background-color: #FF0000;
+  color: #fff;
 }
 
 .message-button:hover {
   background-color: #e60000;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
   .container {
     padding: 10px;

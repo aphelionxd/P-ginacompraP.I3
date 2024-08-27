@@ -49,19 +49,23 @@ export default function App() {
         <h2>{formatCurrency(car.price)}</h2>
         <div className="details-section">
           <h3>Detalhes do Anúncio</h3>
-          <div className="details">
-            <p><strong>Veículo:</strong> {car.model}</p>
-            <p><strong>Vendedor:</strong> {car.seller}</p>
-            <p><strong>Marca:</strong> {car.brand}</p>
-            <p><strong>Modelo:</strong> {car.model}</p>
-            <p><strong>Cidade:</strong> {car.city}</p>
-            <p><strong>Câmbio:</strong> {car.transmission}</p>
-            <p><strong>Ano de Fabricação:</strong> {car.manufactureYear}</p>
-            <p><strong>Carroceria:</strong> {car.bodyType}</p>
-            <p><strong>Ano de Modelo:</strong> {car.modelYear}</p>
-            <p><strong>Combustível:</strong> {car.fuelType}</p>
-            <p><strong>KM:</strong> {car.mileage.toLocaleString('pt-BR')} km</p>
-            <p><strong>Cor:</strong> {car.color}</p>
+          <div className="details-columns">
+            <div className="details-column">
+              <p><strong>Veículo:</strong> {car.model}</p>
+              <p><strong>Vendedor:</strong> {car.seller}</p>
+              <p><strong>Marca:</strong> {car.brand}</p>
+              <p><strong>Modelo:</strong> {car.model}</p>
+              <p><strong>Cidade:</strong> {car.city}</p>
+              <p><strong>Câmbio:</strong> {car.transmission}</p>
+            </div>
+            <div className="details-column">
+              <p><strong>Ano de Fabricação:</strong> {car.manufactureYear}</p>
+              <p><strong>Carroceria:</strong> {car.bodyType}</p>
+              <p><strong>Ano de Modelo:</strong> {car.modelYear}</p>
+              <p><strong>Combustível:</strong> {car.fuelType}</p>
+              <p><strong>KM:</strong> {car.mileage.toLocaleString('pt-BR')} km</p>
+              <p><strong>Cor:</strong> {car.color}</p>
+            </div>
           </div>
           <h3>Descrição do Veículo</h3>
           <p>{car.description}</p>
