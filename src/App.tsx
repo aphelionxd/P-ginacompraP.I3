@@ -18,7 +18,7 @@ interface CarDetails {
 }
 
 const car: CarDetails = {
-  imageUrl: '../public/img/car.jpg', // URL da imagem do carro
+  imageUrl: 'https://via.placeholder.com/800x600',
   brand: 'Marca Exemplo',
   model: 'Modelo Exemplo',
   price: 1000000,
