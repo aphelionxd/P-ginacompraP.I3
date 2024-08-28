@@ -17,6 +17,50 @@ body {
   flex-direction: column;
 }
 
+/* Topo da Página */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+/* Aba de Navegação */
+.tab-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  color: #666;
+}
+
+.tab-button.active {
+  color: #FF0000;
+  border-bottom: 2px solid #FF0000;
+}
+
+/* Seção de Imagem */
 .car-image {
   width: 100%;
   height: auto;
@@ -28,6 +72,7 @@ body {
   border-radius: 8px;
 }
 
+/* Informações do Veículo */
 .car-details {
   margin-top: 20px;
 }
@@ -72,6 +117,7 @@ h2 {
   margin: 5px 0;
 }
 
+/* Botões */
 .buttons {
   display: flex;
   justify-content: center;
@@ -117,6 +163,28 @@ h2 {
   background-color: #e60000;
 }
 
+/* Perfil do Vendedor */
+.seller-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.achievements {
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
   .container {
     padding: 10px;
@@ -159,4 +227,70 @@ h2 {
     align-items: center;
     gap: 5px;
   }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.proposta-container {
+  padding: 20px;
+}
+
+.proposta-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submitted-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: #f0f8ff;
+  color: #007bff;
 }

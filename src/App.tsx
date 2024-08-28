@@ -1,81 +1,69 @@
-import './App.css';
+import React, { useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import './styles/App.css';
+import VehicleDetails from './components/VehicleDetails';
+import SellerDetails from './components/SellerDetails';
+import Proposta from './components/Proposta';
 
-interface CarDetails {
-  imageUrl: string;
-  brand: string;
-  model: string;
-  price: number;
-  seller: string;
-  city: string;
-  transmission: string;
-  manufactureYear: number;
-  bodyType: string;
-  modelYear: number;
-  fuelType: string;
-  mileage: number;
-  color: string;
-  description: string;
-}
+const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta'>('vehicle');
 
-const car: CarDetails = {
-  imageUrl: 'https://via.placeholder.com/800x600',
-  brand: 'Marca Exemplo',
-  model: 'Modelo Exemplo',
-  price: 1000000,
-  seller: 'Vendedor Exemplo',
-  city: 'Cidade Exemplo',
-  transmission: 'Automático',
-  manufactureYear: 2022,
-  bodyType: 'SUV',
-  modelYear: 2023,
-  fuelType: 'Gasolina',
-  mileage: 15000,
-  color: 'Preto',
-  description: 'Descrição detalhada do veículo que pode incluir informações sobre desempenho, características especiais, e outros detalhes importantes.',
-};
+  const handleBuyClick = () => {
+    setActiveTab('proposta');
+  };
 
-export default function App() {
-  function formatCurrency(value: number): string {
-    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }
+  const handleSendMessageClick = () => {
+    setActiveTab('proposta');
+  };
+
+  const handleBackClick = () => {
+    setActiveTab('vehicle'); // ou 'seller', dependendo de qual página você quer voltar
+  };
 
   return (
     <div className="container">
-      <div className="car-image">
-        <img src={car.imageUrl} alt={`${car.brand} ${car.model}`} />
+      {/* Topo da Página */}
+      <div className="header">
+        <button className="back-button" onClick={handleBackClick}>←</button>
+        <h2>{activeTab === 'proposta' ? 'Enviar Proposta' : 'Detalhes do anúncio'}</h2>
       </div>
-      <div className="car-details">
-        <h1>{car.brand} {car.model}</h1>
-        <h2>{formatCurrency(car.price)}</h2>
-        <div className="details-section">
-          <h3>Detalhes do Anúncio</h3>
-          <div className="details-columns">
-            <div className="details-column">
-              <p><strong>Veículo:</strong> {car.model}</p>
-              <p><strong>Vendedor:</strong> {car.seller}</p>
-              <p><strong>Marca:</strong> {car.brand}</p>
-              <p><strong>Modelo:</strong> {car.model}</p>
-              <p><strong>Cidade:</strong> {car.city}</p>
-              <p><strong>Câmbio:</strong> {car.transmission}</p>
-            </div>
-            <div className="details-column">
-              <p><strong>Ano de Fabricação:</strong> {car.manufactureYear}</p>
-              <p><strong>Carroceria:</strong> {car.bodyType}</p>
-              <p><strong>Ano de Modelo:</strong> {car.modelYear}</p>
-              <p><strong>Combustível:</strong> {car.fuelType}</p>
-              <p><strong>KM:</strong> {car.mileage.toLocaleString('pt-BR')} km</p>
-              <p><strong>Cor:</strong> {car.color}</p>
-            </div>
-          </div>
-          <h3>Descrição do Veículo</h3>
-          <p>{car.description}</p>
+
+      {/* Aba de Navegação */}
+      {activeTab !== 'proposta' && (
+        <div className="tab-navigation">
+          <button
+            className={`tab-button ${activeTab === 'vehicle' ? 'active' : ''}`}
+            onClick={() => setActiveTab('vehicle')}
+          >
+            Veículo
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'seller' ? 'active' : ''}`}
+            onClick={() => setActiveTab('seller')}
+          >
+            Vendedor
+          </button>
         </div>
-      </div>
-      <div className="buttons">
-        <button className="buy-button">Comprar</button>
-        <button className="call-button">📞</button>
-        <button className="message-button">Enviar Mensagem</button>
+      )}
+
+      {/* Conteúdo Dinâmico com Animação */}
+      <div className="content">
+        <TransitionGroup>
+          <CSSTransition
+            key={activeTab}
+            timeout={300}
+            classNames="fade"
+          >
+            <div>
+              {activeTab === 'vehicle' && <VehicleDetails onBuyClick={handleBuyClick} onSendMessageClick={handleSendMessageClick} />}
+              {activeTab === 'seller' && <SellerDetails />}
+              {activeTab === 'proposta' && <Proposta />}
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
       </div>
     </div>
   );
-}
+};
+
+export default App;
