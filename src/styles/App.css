@@ -1,6 +1,7 @@
+/* Estilo geral da página */
 body {
   font-family: Arial, sans-serif;
-  background-color: #b8b6b6;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
@@ -8,17 +9,16 @@ body {
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
+  box-sizing: border-box;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
 }
 
 /* Topo da Página */
-.header {
+.nav {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -41,7 +41,6 @@ h2 {
 /* Aba de Navegação */
 .tab-navigation {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
   border-bottom: 2px solid #ddd;
 }
@@ -53,6 +52,8 @@ h2 {
   padding: 10px;
   cursor: pointer;
   color: #666;
+  flex: 1;
+  text-align: center;
 }
 
 .tab-button.active {
@@ -62,14 +63,15 @@ h2 {
 
 /* Seção de Imagem */
 .car-image {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
 .car-image img {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 8px;
+  
 }
 
 /* Informações do Veículo */
@@ -103,12 +105,14 @@ h2 {
 .details-columns {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 .details-column {
   flex: 1;
-  margin: 0 10px;
+  min-width: 250px;
+  margin: 0 15px;
 }
 
 .details p {
@@ -120,8 +124,9 @@ h2 {
 /* Botões */
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -135,6 +140,8 @@ h2 {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  flex: 1;
+  text-align: center;
 }
 
 .buy-button {
@@ -147,7 +154,6 @@ h2 {
 
 .call-button {
   background-color: #000000;
-  font-size: 20px;
 }
 
 .call-button:hover {
@@ -156,7 +162,6 @@ h2 {
 
 .message-button {
   background-color: #FF0000;
-  color: #fff;
 }
 
 .message-button:hover {
@@ -186,49 +191,54 @@ h2 {
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 24px;
+  .tab-button {
+    font-size: 16px;
   }
 
   .buttons {
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    gap: 10px;
+  }
+
+  .details-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .details-column {
+    margin: 0;
+  }
+
+  .submit-button {
+    padding: 12px 16px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 5px;
-  }
-
-  h1 {
-    font-size: 18px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  .details p {
+  .tab-button {
     font-size: 14px;
   }
 
   .buttons {
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+  }
+
+  .details-columns {
+    flex-direction: column;
+  }
+
+  .details-column {
+    margin: 0;
+  }
+
+  .submit-button {
+    padding: 10px 14px;
+    font-size: 14px;
   }
 }
 
+/* Animações de transição */
 .fade-enter {
   opacity: 0;
 }
@@ -245,52 +255,4 @@ h2 {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 300ms;
-}
-
-.proposta-container {
-  padding: 20px;
-}
-
-.proposta-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.submit-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-}
-
-.submitted-message {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #007bff;
-  border-radius: 4px;
-  background-color: #f0f8ff;
-  color: #007bff;
 }

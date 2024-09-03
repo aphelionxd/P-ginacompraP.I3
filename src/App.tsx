@@ -4,12 +4,13 @@ import './styles/App.css';
 import VehicleDetails from './components/VehicleDetails';
 import SellerDetails from './components/SellerDetails';
 import Proposta from './components/Proposta';
+import Header from './components/Header';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta'>('vehicle');
 
   const handleBuyClick = () => {
-    setActiveTab('proposta');
+    // Lógica de compra aqui, mas sem redirecionamento
   };
 
   const handleSendMessageClick = () => {
@@ -17,37 +18,33 @@ const App: React.FC = () => {
   };
 
   const handleBackClick = () => {
-    setActiveTab('vehicle'); // ou 'seller', dependendo de qual página você quer voltar
+    setActiveTab('vehicle'); // Voltar para a aba "vehicle"
   };
 
   return (
-    <div className="container">
-      {/* Topo da Página */}
-      <div className="header">
-        <button className="back-button" onClick={handleBackClick}>←</button>
-        <h2>{activeTab === 'proposta' ? 'Enviar Proposta' : 'Detalhes do anúncio'}</h2>
-      </div>
-
-      {/* Aba de Navegação */}
-      {activeTab !== 'proposta' && (
-        <div className="tab-navigation">
-          <button
-            className={`tab-button ${activeTab === 'vehicle' ? 'active' : ''}`}
-            onClick={() => setActiveTab('vehicle')}
-          >
-            Veículo
-          </button>
-          <button
-            className={`tab-button ${activeTab === 'seller' ? 'active' : ''}`}
-            onClick={() => setActiveTab('seller')}
-          >
-            Vendedor
-          </button>
-        </div>
-      )}
-
-      {/* Conteúdo Dinâmico com Animação */}
+    <div className="app-wrapper">
+      <Header />
       <div className="content">
+        <div className="nav">
+          <button className="back-button" onClick={handleBackClick}>←</button>
+          <h2>{activeTab === 'proposta' ? 'Enviar Proposta' : 'Detalhes do anúncio'}</h2>
+        </div>
+        {activeTab !== 'proposta' && (
+          <div className="tab-navigation">
+            <button
+              className={`tab-button ${activeTab === 'vehicle' ? 'active' : ''}`}
+              onClick={() => setActiveTab('vehicle')}
+            >
+              Veículo
+            </button>
+            <button
+              className={`tab-button ${activeTab === 'seller' ? 'active' : ''}`}
+              onClick={() => setActiveTab('seller')}
+            >
+              Vendedor
+            </button>
+          </div>
+        )}
         <TransitionGroup>
           <CSSTransition
             key={activeTab}
@@ -55,7 +52,12 @@ const App: React.FC = () => {
             classNames="fade"
           >
             <div>
-              {activeTab === 'vehicle' && <VehicleDetails onBuyClick={handleBuyClick} onSendMessageClick={handleSendMessageClick} />}
+              {activeTab === 'vehicle' && (
+                <VehicleDetails
+                  onBuyClick={handleBuyClick}
+                  onSendMessageClick={handleSendMessageClick}
+                />
+              )}
               {activeTab === 'seller' && <SellerDetails />}
               {activeTab === 'proposta' && <Proposta />}
             </div>
