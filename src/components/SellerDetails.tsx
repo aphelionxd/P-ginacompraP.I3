@@ -2,7 +2,7 @@ import React from 'react';
 
 const SellerDetails: React.FC = () => {
   return (
-    <div>
+    <div className='container'>
       {/* Seção de Perfil do Vendedor */}
       <div className="seller-profile">
         <img

@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta'>('vehicle');
 
   const handleBuyClick = () => {
-    // Lógica de compra aqui, mas sem redirecionamento
+    // Aqui ficará a Lógica de compra 
   };
 
   const handleSendMessageClick = () => {
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   };
 
   const handleBackClick = () => {
-    setActiveTab('vehicle'); // Voltar para a aba "vehicle"
+    setActiveTab('vehicle'); // Voltar para a aba "vehicleS"
   };
 
   return (

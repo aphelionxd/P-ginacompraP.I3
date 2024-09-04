@@ -48,7 +48,7 @@ const Proposta: React.FC = () => {
   };
 
   return (
-    <div className="proposta-container">
+    <div className="container">
   <form onSubmit={handleSubmit} className="proposta-form">
     <div className="form-group">
       <label htmlFor="name">Nome:</label>
