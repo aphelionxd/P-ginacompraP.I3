@@ -4,13 +4,14 @@ import './styles/App.css';
 import VehicleDetails from './components/VehicleDetails';
 import SellerDetails from './components/SellerDetails';
 import Proposta from './components/Proposta';
+import PaymentPage from './components/PaymentPage';
 import Header from './components/Header';
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta'>('vehicle');
+  const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta' | 'payment'>('vehicle');
 
   const handleBuyClick = () => {
-    // Aqui ficará a Lógica de compra 
+    setActiveTab("payment"); // Alterado para navegar para a página de pagamento
   };
 
   const handleSendMessageClick = () => {
@@ -18,7 +19,7 @@ const App: React.FC = () => {
   };
 
   const handleBackClick = () => {
-    setActiveTab('vehicle'); // Voltar para a aba "vehicleS"
+    setActiveTab('vehicle'); // Voltar para a aba "vehicle"
   };
 
   return (
@@ -27,9 +28,13 @@ const App: React.FC = () => {
       <div className="content">
         <div className="nav">
           <button className="back-button" onClick={handleBackClick}>←</button>
-          <h2>{activeTab === 'proposta' ? 'Enviar Proposta' : 'Detalhes do anúncio'}</h2>
+          <h2>
+            {activeTab === 'proposta' ? 'Enviar Proposta' : 
+             activeTab === 'payment' ? 'Finalizando Compra' : 
+             'Detalhes do anúncio'}
+          </h2>
         </div>
-        {activeTab !== 'proposta' && (
+        {activeTab !== 'proposta' && activeTab !== 'payment' && (
           <div className="tab-navigation">
             <button
               className={`tab-button ${activeTab === 'vehicle' ? 'active' : ''}`}
@@ -52,14 +57,10 @@ const App: React.FC = () => {
             classNames="fade"
           >
             <div>
-              {activeTab === 'vehicle' && (
-                <VehicleDetails
-                  onBuyClick={handleBuyClick}
-                  onSendMessageClick={handleSendMessageClick}
-                />
-              )}
+              {activeTab === 'vehicle' && <VehicleDetails onBuyClick={handleBuyClick} onSendMessageClick={handleSendMessageClick} />}
               {activeTab === 'seller' && <SellerDetails />}
               {activeTab === 'proposta' && <Proposta />}
+              {activeTab === 'payment' && <PaymentPage />} {/* Adicionado o componente de pagamento */}
             </div>
           </CSSTransition>
         </TransitionGroup>
