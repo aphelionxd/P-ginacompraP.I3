@@ -11,10 +11,10 @@ interface VehicleDetailsProps {
 const VehicleDetails: React.FC<VehicleDetailsProps> = ({ onBuyClick, onSendMessageClick }) => {
   const car = {
     imageUrls: [
-      'src/assets/car1.png',
-      'src/assets/car2.png',
-      'src/assets/car3.png',
-      'src/assets/car4.png'
+      '../src/assets/car1.png',
+      '../src/assets/car2.png',
+      '../src/assets/car3.png',
+      '../src/assets/car4.png'
     ],
     
     brand: 'Marca',
