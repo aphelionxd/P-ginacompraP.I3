@@ -1,9 +1,13 @@
-import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const VehicleDetails = ({ onBuyClick, onSendMessageClick }) => {
+interface VehicleDetailsProps {
+  onBuyClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onSendMessageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const VehicleDetails: React.FC<VehicleDetailsProps> = ({ onBuyClick, onSendMessageClick }) => {
   const car = {
     imageUrls: [
       '../src/assets/car1.png',
@@ -26,7 +30,7 @@ const VehicleDetails = ({ onBuyClick, onSendMessageClick }) => {
     description: 'Descrição detalhada do veículo.'
   };
 
-  const formatCurrency = (value) => {
+  const formatCurrency = (value: number) => {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 

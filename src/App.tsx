@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'vehicle' | 'seller' | 'proposta' | 'payment'>('vehicle');
 
   const handleBuyClick = () => {
-    setActiveTab("payment"); // Alterado para navegar para a página de pagamento
+    setActiveTab("payment"); 
   };
 
   const handleSendMessageClick = () => {
@@ -19,7 +19,7 @@ const App: React.FC = () => {
   };
 
   const handleBackClick = () => {
-    setActiveTab('vehicle'); // Voltar para a aba "vehicle"
+    setActiveTab('vehicle');
   };
 
   return (
@@ -60,7 +60,7 @@ const App: React.FC = () => {
               {activeTab === 'vehicle' && <VehicleDetails onBuyClick={handleBuyClick} onSendMessageClick={handleSendMessageClick} />}
               {activeTab === 'seller' && <SellerDetails />}
               {activeTab === 'proposta' && <Proposta />}
-              {activeTab === 'payment' && <PaymentPage />} {/* Adicionado o componente de pagamento */}
+              {activeTab === 'payment' && <PaymentPage />} 
             </div>
           </CSSTransition>
         </TransitionGroup>

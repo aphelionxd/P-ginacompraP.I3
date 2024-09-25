@@ -7,7 +7,7 @@ const Header = () => {
     <div className='inner-container'>
       <header className="Header">
         <div className="logo-container">
-          <img src={Logo} alt="Logo" className="logo" style={{ width: '250px', height: 'auto' }} />
+          <a href="./app.tsx"><img src={Logo} alt="Logo" className="logo" style={{ width: '250px', height: 'auto' }} /></a>
         </div>
         <div className="search-container">
           <input type="text" placeholder="Buscar..." className="search-input" />
@@ -37,7 +37,7 @@ const Header = () => {
                 <FaUser className="nav-icon" />
                 Perfil
               </a>
-            </li>
+            </li> 
             <li className="nav-item">
               <a href="#login" className="nav-link">
                 <FaSignInAlt className="nav-icon" />
